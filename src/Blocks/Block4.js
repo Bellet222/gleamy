@@ -1,7 +1,9 @@
 import { useSpring, animated } from '@react-spring/web'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { AppContext } from '..';
 
 export default function Block4() {
+    const {setOpenModal} = useContext(AppContext)
 
     const [animationComplete, setAnimationComplete] = useState(false)
     // useEffect
@@ -45,7 +47,10 @@ export default function Block4() {
         <p className="main-text">Gleamy is a leading design & software development agency 
         based in berlin. We help startups & Fortune 500 companies 
         delight humans on the other side of the screen.</p>
-        <button className="main-button">Contact us</button>
+        <button 
+        className="main-button"
+        onClick={() => setOpenModal(true)}
+        >Contact us</button>
         </div>
       </div>
 

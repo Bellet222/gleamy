@@ -1,8 +1,7 @@
 import logo from "../img/logo.png";
 import logog from "../img/logo-g.png";
-import Modal from './Modal';
 import { useSpring, animated } from '@react-spring/web'
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 export default function Block1 () {
 
@@ -16,7 +15,6 @@ export default function Block1 () {
 
     // MODAL 
 
-  const [active, setActive] = useState(false)
 
     return(
         <animated.div 
@@ -38,11 +36,7 @@ export default function Block1 () {
           </div>
         </div>
         <div className="line"></div>
-        <p className="contactwas" onClick={() => setActive(true)}>
-          Let’s Start With Us
-        </p>
         <div className="block-1-line"></div>
-        <Modal active={active}/>
       </animated.div>
     )
 }

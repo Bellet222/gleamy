@@ -3,13 +3,13 @@ import telega from "../img/telega.png";
 import inst from "../img/inst.png";
 import post from "../img/post.png";
 
-export default function Modal({active}) {
+export default function Modal({active, onClick}) {
 
 
   return (
     <div className={`modal ${active ? 'activeclass' : ''}`}>
       <div className="modal-window">
-        <p className="exit">X</p>
+        <p className="exit" onClick={onClick}>X</p>
         <p className="modal-title">Связаться с нами</p>
         <div className="modal-line"></div>
         <div className="social">
