@@ -12,6 +12,7 @@ export default function Block4() {
         from: { x: -1380 },
       }))
 
+
       const handleClick = () => {
         if (window.scrollY > 680 && !animationComplete) {
             setAnimationComplete(true)
@@ -21,6 +22,35 @@ export default function Block4() {
                 },
                 })
         }
+      }
+
+      async function postData(url = '', data = {}) {
+        const response = await fetch(url, {
+          mode:'cors',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data) 
+        });
+        return response.json(); 
+      }
+
+      const responcc = async () => {
+        try{
+          const resultRead = postData('https://exprompt.pw/api/tokensapi.php/', {
+              'iamel':'pR3#kL8Yq2!sG9@jF5$',
+              'action':'read',
+              "productid": 'gpt4',
+              "userkey":'DANIEL6161',
+              "tokentype":"responce",
+              "tokencount": 2
+          })
+          const result = await resultRead
+          console.log(`Всего потрачено токенов: ${result[0].tokencount} / 1.000.000`)
+       } catch (e) {
+          console.error('[Error data]', e);
+       }
       }
       
 
@@ -49,7 +79,7 @@ export default function Block4() {
         delight humans on the other side of the screen.</p>
         <button 
         className="main-button"
-        onClick={() => setOpenModal(true)}
+        onClick={responcc}
         >Contact us</button>
         </div>
       </div>
